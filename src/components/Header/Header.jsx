@@ -47,7 +47,7 @@ const Header = () => {
           <div className='close-icon'>
             <Icon name="close" size='big' onClick={ toggleSideBar } />
           </div>
-          <SideBar />
+          <SideBar showSideBar={showSideBar} />
         </div>
         {/* )} */ }
       </div>

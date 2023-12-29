@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, Item } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 import projectData from "../../assets/data/projectDetails.json";
 
 const Projects = () => {
@@ -13,8 +13,8 @@ const Projects = () => {
 
   return (
     <div>
-      <Grid style={ { width: "100vw" } }>
-        <Grid.Column style={ { width: "88%", padding: "20px" } }>
+      {/* <Grid style={ { width: "100vw" } }> */}
+        {/* <Grid.Column style={ { width: "88%", padding: "20px" } }> */}
           <Item.Group divided >
 
             { projectData.map((project, index) => (
@@ -36,8 +36,8 @@ const Projects = () => {
             )) }
 
           </Item.Group>
-        </Grid.Column>
-      </Grid>
+        {/* </Grid.Column> */}
+      {/* </Grid> */}
     </div>
   )
 }

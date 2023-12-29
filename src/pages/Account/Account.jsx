@@ -1,8 +1,8 @@
 import React from 'react'
-import { Grid, Table } from 'semantic-ui-react'
+// import { Grid, Table } from 'semantic-ui-react'
 import currentUser from "../../assets/data/currentUser.json"
 import empData from "../../assets/data/employeesData.json"
-import "./account.css"
+import "./Account.scss"
 
 const Account = () => {
   let userData = empData.employees.filter((user, index) => user.userName === currentUser[0].username);
@@ -17,19 +17,24 @@ const Account = () => {
   if (userData.length === 0) {
     userData = user();
   }
+  const tableHeadings = ["EMPLOYEE ID", "ROLE", "FIRST NAME", "LAST NAME", "FULL NAME", "DOB", "DOJ", "MOBILE NUMBER", "EMAIL ADDRESS", "USERNAME", "PASSWORD", "EXPERIENCE", "EXPERIENCE"]
 
-  const formatHeader = (label) => {
-    const words = label.match(/[A-Z]+(?![a-z])|[A-Z]?[a-z]+|\d+/g);
-    const header = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+  // const fetchHeading = () => {
 
-    return words ? header : label;
-  };
+  // }
+
+  // const formatHeader = (label) => {
+  //   const words = label.match(/[A-Z]+(?![a-z])|[A-Z]?[a-z]+|\d+/g);
+  //   const header = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+
+  //   return words ? header : label;
+  // };
 
   return (
     <div className='account-container'>
-      <Grid style={ { width: "100%" } }>
+      {/* <Grid >
         <Grid.Column >
-          <Table style={ { width: "500px" } }>
+          <Table >
             <Table.Body>
               { Object.entries(userData[0]).map((detail, value) => (
                 (detail[0] !== "src" && (
@@ -43,7 +48,20 @@ const Account = () => {
             </Table.Body>
           </Table>
         </Grid.Column>
-      </Grid>
+      </Grid> */}
+      <table className='account-table'>
+        <tbody className='table-body'>
+          { Object.entries(userData[0]).map((detail, value) => (
+            (detail[0] !== "src" && (
+              <tr className='table-row' key={ value } >
+                <th className='table-heading' >{ tableHeadings[value] }</th>
+                <td className='table-data' >{ detail[1] }</td>
+              </tr>
+            )
+            )
+          )) }
+        </tbody>
+      </table>
     </div>
   )
 }

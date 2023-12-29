@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./leave.css";
+import "./Leave.scss";
 import leaveData from "../../assets/data/leaveData.json";
 import empData from "../../assets/data/employeesData.json";
-import { Button, Table } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
+// import Table from "semantic-ui-react";
 
 const Leave = () => {
 	let empProfile = [];
@@ -32,14 +33,14 @@ const Leave = () => {
 		});
 		updateJson(sign, rowIndex);
 	};
-	
-	// console.log("statusArray:", statusArray)
-	const formatHeader = (label) => {
-		const words = label.match(/[A-Z]+(?![a-z])|[A-Z]?[a-z]+|\d+/g);
-		const header = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
 
-		return words ? header : label;
-	};
+	// console.log("statusArray:", statusArray)
+	// const formatHeader = (label) => {
+	// 	const words = label.match(/[A-Z]+(?![a-z])|[A-Z]?[a-z]+|\d+/g);
+	// 	const header = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+
+	// 	return words ? header : label;
+	// };
 
 	const updateJson = (sign, rowIndex) => {
 		leaveData.map((user, userIndex) => {
@@ -57,9 +58,9 @@ const Leave = () => {
 
 	return (
 		<div className="table-container">
-			<Table
+			{/* <Table
 				className="table"
-				style={ { width: "850px", margin: "20px auto", border: "1px solid" } }
+				// style={ { width: "850px", margin: "20px auto", border: "1px solid" } }
 			>
 				<Table.Header className="table-header">
 					<Table.Row className="table-header-row">
@@ -88,7 +89,7 @@ const Leave = () => {
 									data[0] !== "status" && (
 										<Table.Cell
 											className={
-												detail === 0 ? "table-first-cell" : "table-cell"
+												detail === 0 ? "table-first-cell" : "table-data"
 											}
 											key={ detail }
 											textAlign="center"
@@ -97,7 +98,7 @@ const Leave = () => {
 										</Table.Cell>
 									)
 							) }
-							<Table.Cell className="table-cell" textAlign="center">
+							<Table.Cell className="table-data" textAlign="center">
 								{ !statusArray[rowIndex].approved &&
 									!statusArray[rowIndex].declined ? (
 									<>
@@ -125,7 +126,65 @@ const Leave = () => {
 						</Table.Row>
 					)) }
 				</Table.Body>
-			</Table>
+			</Table> */}
+			<table className="leave-table" cellSpacing={0} >
+				<thead className="table-head">
+					<tr className="table-head-row">
+						<th className="table-heading" >EMPLOYEE ID</th>
+						<th className="table-heading" >FULL NAME</th>
+						<th className="table-heading" >START DATE</th>
+						<th className="table-heading" >END DATE</th>
+						<th className="table-heading" >REASON</th>
+						<th className="table-heading" >APPROVAL</th>
+					</tr>
+				</thead>
+				<tbody className="table-body">
+					{ leaveData.map((user, rowIndex) => (
+						<tr className="table-body-row" key={ rowIndex }>
+							{ Object.entries(user).map(
+								(data, detail) =>
+									data[0] !== "status" && (
+										<td
+											// className={
+											// 	detail === 0 ? "table-first-data" : "table-data"
+											// }
+											className="table-data"
+											key={ detail }
+											textAlign="center"
+										>
+											{ data[1] }
+										</td>
+									)
+							) }
+							<td className="table-data button-data-item" 	>
+								{ !statusArray[rowIndex].approved &&
+									!statusArray[rowIndex].declined ? (
+									<>
+										<Button
+											positive
+											content="Approve"
+											onClick={ () => {
+												statusHandler("approve", rowIndex);
+											} }
+										/>
+										<Button
+											negative
+											content="Decline"
+											onClick={ () => {
+												statusHandler("decline", rowIndex);
+											} }
+										/>
+									</>
+								) : statusArray[rowIndex].approved ? (
+									<Button positive content="Approved" />
+								) : (
+									<Button negative content="Declined" />
+								) }
+							</td>
+						</tr>
+					)) }
+				</tbody>
+			</table>
 		</div>
 	);
 };

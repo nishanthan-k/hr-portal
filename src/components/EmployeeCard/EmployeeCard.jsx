@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Image, Pagination } from "semantic-ui-react";
-import "./employeeCard.css";
+import "./EmployeeCard.scss";
 
 const EmployeeCard = (props) => {
 	// console.log(
@@ -21,6 +21,7 @@ const EmployeeCard = (props) => {
 			props.filteredEmp.slice(startIndex, endIndex).map((emp, index) => (
 				<div className="card-container" key={index}>
 					<Card
+						className="employee-card"
 						key={ emp.fullName }
 						onClick={ () => props.clickHandler(emp) }
 						style={ {
@@ -54,7 +55,7 @@ const EmployeeCard = (props) => {
 
 	return (
 		<div className={props.filteredEmp.length !== 0 ? "employee-container" : "employee-container no-results"}>
-			<div className="employee-cards">{ renderCards() }</div>
+			<div className="employee-card-container">{ renderCards() }</div>
 			{ props.filteredEmp.length !== 0 && (
 				<div className="pagination">
 					<Pagination
