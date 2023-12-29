@@ -1,0 +1,18 @@
+[
+  {
+    "title": "HR Portal",
+    "projectTeam": "Intern Project",
+    "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh-x6R04jlimgXqhN_O6j9dLT_UK_ELl9r9g&usqp=CAU",
+    "description": "The Frontend Project developed by Nishanthan used by HR to monitor Employee Detail, Project Details.",
+    "techStack": "React, Semantic UI, Formik",
+    "teamMembers": ["EMP101", "EMP102", "EMP103", "EMP104", "AMP10415"]
+  },
+  {
+    "title": "Hospital Management",
+    "projectTeam": "Intern Project",
+    "src": "https://p1.hiclipart.com/preview/396/647/613/social-icons-health-administration-hospital-information-system-health-care-management-electronic-health-record-management-system-medicine-png-clipart.jpg",
+    "description": "The Frontend Project developed by Nivash to check the availability and book the doctors",
+    "techStack": "React, Semantic UI, Formik",
+    "teamMembers": ["EMP110", "EMP111", "EMP112", "EMP113", "AMP10415"]
+  }
+]

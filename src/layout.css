@@ -1,0 +1,21 @@
+/* body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.ui.grid > .column:not(.row),
+.ui.grid > .row > .column,
+.ui.celled.grid > .row > .column.no-padding {
+  padding: 0 !important;
+}
+
+.ui.celled.grid {
+  margin: 0 !important;
+}
+
+
+.main-row {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+} */
+
