@@ -1,0 +1,50 @@
+[
+  {
+    "empID": "EMP101",
+    "fullName": "Romin Irani",
+    "startDate": "01-01-2001",
+    "endDate": "01-01-2001",
+    "reason": "Sick",
+    "status": ""
+  },
+  {
+    "empID": "EMP102",
+    "fullName": "Neil Irani",
+    "startDate": "11-01-2001",
+    "endDate": "13-01-2001",
+    "reason": "Having semester exam",
+    "status": ""
+  },
+  {
+    "empID": "EMP103",
+    "fullName": "Tom Hanks",
+    "startDate": "05-01-2001",
+    "endDate": "07-01-2001",
+    "reason": "Going to marriage",
+    "status": ""
+  },
+  {
+    "empID": "EMP104",
+    "fullName": "John Peter",
+    "startDate": "02-01-2001",
+    "endDate": "02-01-2001",
+    "reason": "Sick",
+    "status": ""
+  },
+  {
+    "empID": "EMP105",
+    "fullName": "David Thomas",
+    "startDate": "12-01-2001",
+    "endDate": "12-01-2001",
+    "reason": "Sick",
+    "status": ""
+  },
+  {
+    "empID": "EMP106",
+    "fullName": "Dhaval Patel",
+    "startDate": "12-01-2001",
+    "endDate": "13-01-2001",
+    "reason": "Sick",
+    "status": ""
+  }
+]

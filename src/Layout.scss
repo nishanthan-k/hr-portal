@@ -1,0 +1,19 @@
+.main-row {
+  width: 100vw;
+  display: flex;
+
+  .sidebar-container {
+    width: 10%;
+    background-color: red;
+  }
+
+  .children-container {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 800px) {
+    .sidebar-container {
+      display: none;
+    }
+  }
+}
