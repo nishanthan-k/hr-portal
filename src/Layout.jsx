@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
         </Grid.Column> */}
         <div className="main-row">
           <div className="sidebar-container"><SideBar /></div>
-          <div className="childern-container">{ children }</div>
+          <div className="children-container">{ children }</div>
         </div>
       </Grid.Row>
 

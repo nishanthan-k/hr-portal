@@ -2,9 +2,9 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, Icon, Segment } from "semantic-ui-react";
+import currentUser from "../../assets/data/currentUser.json";
 import empData from "../../assets/data/employeesData.json";
-import currentUser from "../../assets/data/currentUser.json"
-import "./Login.scss"
+import "./Login.scss";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -20,11 +20,8 @@ const Login = () => {
 			onSubmitProps.setSubmitting(false);
 		},
 		validate: (values) => {
-			// setFormSubmitted(!formSubmitted)
 			let errors = {};
-			// console.log("formSubmitted?", formSubmitted)
 			if (formSubmitted) {
-				// console.log("submitted")
 				if (!values.username) {
 					errors.username = "Username is required";
 				}
@@ -41,7 +38,6 @@ const Login = () => {
 					if (user.length > 0) {
 						if (user[0].password === values.password) {
 							Object.assign(currentUser[0], { username: formik.values.username, password: formik.values.password })
-							// console.log(currentUser[0])
 							navigate("/dashboard");
 						} else {
 							errors.password = "Wrong Password";
@@ -54,9 +50,9 @@ const Login = () => {
 			}
 			return errors;
 		},
+		validateOnChange: false,
 	});
 
-	// console.log("submit:", formSubmitted)
 
 	const submitHandler = () => {
 		setFormSubmitted(!formSubmitted);
@@ -64,8 +60,8 @@ const Login = () => {
 
 	const changeHandler = () => {
 		setFormSubmitted(false);
-		// console.log("change")
 	}
+
 
 	return (
 		<div className="login-container">

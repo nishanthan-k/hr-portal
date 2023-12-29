@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Icon, Menu } from 'semantic-ui-react';
 import "./SideBar.scss"
 
-const SideBar = () => {
-  const [activeItem, setActiveItem] = useState('dashboard');
+const SideBar = (props) => {
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState(location.pathname.slice(1));
 
   const handleItemClick = (name) => {
     if (name !== activeItem) {
@@ -65,6 +66,17 @@ const SideBar = () => {
         <Icon size='big' name='user circle' />
         Account
       </Menu.Item>
+
+      {props.showSideBar && <Menu.Item
+        className={ `menu-item ${activeItem === 'logout' ? 'active' : ''}` }
+        as={ Link }
+        name='logout'
+        to='/'
+        onClick={ () => handleItemClick('logout') }
+      >
+        <Icon size='big' name='sign-out alternate' />
+        Logout
+      </Menu.Item>}
     </div>
   );
 };

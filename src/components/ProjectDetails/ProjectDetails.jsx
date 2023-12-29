@@ -31,7 +31,7 @@ const ProjectDetails = (props) => {
         {/* <Grid.Column style={ { width: "12%" } }>
           <SideBar />
         </Grid.Column> */}
-        <Grid.Column style={ { width: "88%", padding: "2rem" } }>
+        <Grid.Column >
           <Table >
             <Table.Body>
               {/* <Header>{ props.selectedEmp.fullName }</Header>
