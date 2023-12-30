@@ -127,7 +127,7 @@ const Leave = () => {
 					)) }
 				</Table.Body>
 			</Table> */}
-			<table className="leave-table" cellSpacing={0} >
+			<table className="leave-table" cellSpacing={0} cellPadding={4} >
 				<thead className="table-head">
 					<tr className="table-head-row">
 						<th className="table-heading" >EMPLOYEE ID</th>
