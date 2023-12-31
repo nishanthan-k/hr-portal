@@ -20,8 +20,7 @@ const Header = () => {
 
   let user = empData.employees.filter(emp => emp.userName === currentUser[0].username)
 
-  console.log(user)
-
+  // console.log(user)
 
   return (
     <div className='header-container'>
