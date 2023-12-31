@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Icon } from 'semantic-ui-react';
 import currentUser from "../../assets/data/currentUser.json";
+import empData from "../../assets/data/employeesData.json"
 import "./Header.scss"
 import SideBar from '../SideBar/SideBar';
 
@@ -17,12 +18,17 @@ const Header = () => {
 
   const toggleSideBar = () => setShowSideBar(!showSideBar);
 
+  let user = empData.employees.filter(emp => emp.userName === currentUser[0].username)
+
+  console.log(user)
+
+
   return (
     <div className='header-container'>
       <div className='header-content'>
         <img className='hr-logo' src={ require("../../assets/images/hr-icon.jpg") } alt="HR Logo" />
         { currentUser[0].username ? (
-          <h2>Welcome { currentUser[0].username.toUpperCase() }</h2>
+          <h2>Welcome { user[0].firstName.toUpperCase() }</h2>
         ) : (
           <h2>Welcome User</h2>
         ) }
