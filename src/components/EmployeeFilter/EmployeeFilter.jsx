@@ -45,10 +45,8 @@ const EmployeeFilter = (props) => {
     }
 
     if (sort === "exp") {
-      console.log("sort");
       filteredData.sort((a, b) => b.exp - a.exp);
     } else {
-      console.log("sort");
       filteredData.sort((a, b) => new Date(a.doj) - new Date(b.doj));
     }
 
