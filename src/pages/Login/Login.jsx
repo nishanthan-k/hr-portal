@@ -103,6 +103,7 @@ const Login = () => {
 										placeholder="Password"
 										value={ formik.values.password }
 										onChange={ formik.handleChange }
+										onKeyPress={ changeHandler }
 										onBlur={ formik.handleBlur }
 										error={ formSubmitted && formik.errors.password && {
 											content: formik.errors.password,
