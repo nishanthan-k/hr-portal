@@ -70,13 +70,13 @@ const Leave = () => {
 									<Table.HeaderCell
 										className="table-header-cell"
 										key={ value }
-										textAlign="center"
+										// textAlign="center"
 									>
 										{ formatHeader(data[0]) }
 									</Table.HeaderCell>
 								)
 						) }
-						<Table.HeaderCell className="table-header-cell" textAlign="center">
+						// <Table.HeaderCell className="table-header-cell" textAlign="center">
 							Approval
 						</Table.HeaderCell>
 					</Table.Row>
@@ -92,13 +92,13 @@ const Leave = () => {
 												detail === 0 ? "table-first-cell" : "table-data"
 											}
 											key={ detail }
-											textAlign="center"
+											// textAlign="center"
 										>
 											{ data[1] }
 										</Table.Cell>
 									)
 							) }
-							<Table.Cell className="table-data" textAlign="center">
+							// <Table.Cell className="table-data" textAlign="center">
 								{ !statusArray[rowIndex].approved &&
 									!statusArray[rowIndex].declined ? (
 									<>
@@ -127,7 +127,7 @@ const Leave = () => {
 					)) }
 				</Table.Body>
 			</Table> */}
-			<table className="leave-table" cellSpacing={0} cellPadding={4} >
+			<table className="leave-table" cellSpacing={0} cellPadding={5} >
 				<thead className="table-head">
 					<tr className="table-head-row">
 						<th className="table-heading" >EMPLOYEE ID</th>
@@ -150,7 +150,7 @@ const Leave = () => {
 											// }
 											className="table-data"
 											key={ detail }
-											textAlign="center"
+											// textAlign="center"
 										>
 											{ data[1] }
 										</td>

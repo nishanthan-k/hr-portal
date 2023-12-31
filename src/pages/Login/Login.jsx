@@ -35,6 +35,8 @@ const Login = () => {
 						(emp, index) => emp.userName === values.username
 					);
 
+					console.log(user);
+
 					if (user.length > 0) {
 						if (user[0].password === values.password) {
 							Object.assign(currentUser[0], { username: formik.values.username, password: formik.values.password })
