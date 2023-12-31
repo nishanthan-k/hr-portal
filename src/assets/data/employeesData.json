@@ -104,7 +104,7 @@
       "phoneNumber": "+1 123-456-7890",
       "email": "john.doe@example.com",
       "username": "johndoe",
-      "password": "johnpassword"
+      "password": "pass"
     },
     {
       "empID": "EMP108",
@@ -120,7 +120,7 @@
       "phoneNumber": "+1 234-567-8901",
       "email": "jane.smith@example.com",
       "username": "janesmith",
-      "password": "janepassword"
+      "password": "pass"
     },
     {
       "empID": "EMP109",
@@ -135,8 +135,8 @@
       "src": "https://cdn2.iconfinder.com/data/icons/business-271/141/7-512.png",
       "phoneNumber": "+1 345-678-9012",
       "email": "michael.johnson@example.com",
-      "username": "michaeljohnson",
-      "password": "michaelpassword"
+      "userName": "michaeljohnson",
+      "password": "pass"
     },
     {
       "empID": "EMP110",
@@ -152,7 +152,7 @@
       "phoneNumber": "+1 456-789-0123",
       "email": "emily.davis@example.com",
       "username": "emilydavis",
-      "password": "emilypassword"
+      "password": "pass"
     },
     {
       "empID": "EMP111",
@@ -168,7 +168,7 @@
       "phoneNumber": "+1 777-222-5555",
       "email": "daniel.clark@example.com",
       "username": "danielclark",
-      "password": "danielpassword"
+      "password": "pass"
     },
     {
       "empID": "EMP112",
@@ -184,7 +184,7 @@
       "phoneNumber": "+1 888-555-1234",
       "email": "olivia.garcia@example.com",
       "username": "oliviagarcia",
-      "password": "oliviapassword"
+      "password": "pass"
     },
     {
       "empID": "EMP113",
@@ -200,7 +200,7 @@
       "phoneNumber": "+1 777-777-7777",
       "email": "william.brown@example.com",
       "username": "williambrown",
-      "password": "williampassword"
+      "password": "pass"
     },
     {
       "empID": "EMP114",
@@ -216,7 +216,7 @@
       "phoneNumber": "+1 999-888-7777",
       "email": "sophia.wilson@example.com",
       "username": "sophiawilson",
-      "password": "sophiapassword"
+      "password": "pass"
     },
     {
       "empID": "EMP115",
@@ -232,7 +232,7 @@
       "phoneNumber": "+1 111-222-3333",
       "email": "ethan.taylor@example.com",
       "username": "ethantaylor",
-      "password": "ethanpassword"
+      "password": "pass"
     },
     {
       "empID": "EMP116",
@@ -248,7 +248,7 @@
       "phoneNumber": "+1 444-555-6666",
       "email": "ava.anderson@example.com",
       "username": "avaanderson",
-      "password": "avapassword"
+      "password": "pass"
     },
     {
       "empID": "EMP116",
@@ -264,7 +264,7 @@
       "phoneNumber": "+1 444-555-6666",
       "email": "ava.anderson@example.com",
       "username": "avaanderson",
-      "password": "avapassword"
+      "password": "pass"
     },
     {
       "empID": "AMP10415",
