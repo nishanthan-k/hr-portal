@@ -23,18 +23,19 @@ const ProjectDetails = (props) => {
     return arr;
   }
 
+  const headings = ["Title", "Project Team", "Src", "Description", "Tech Stack"];
+
   return (
     <div>
       <Grid style={ { width: "100vw" } }>
         <Grid.Column >
           <Table >
             <Table.Body>
-
-              { Object.entries(project).map((detail, value) => (
+              { Object.entries(project).map((detail, index) => (
                 (detail[0] !== "teamMembers" && (
                   <Table.Row key={detail}>
-                    <Table.HeaderCell>{ detail[0] } : </Table.HeaderCell>
-                    <Table.Cell>{ detail[1] } : </Table.Cell>
+                    <Table.HeaderCell>{ headings[index] } : </Table.HeaderCell>
+                    <Table.Cell>{ detail[1] }</Table.Cell>
                   </Table.Row>
                 )
                 )
@@ -46,8 +47,6 @@ const ProjectDetails = (props) => {
                   <EmployeeModal selectedEmp={ selectedEmp } open={ open } setOpen={ setOpen } />
                 </Table.Cell>
               </Table.Row>
-
-
             </Table.Body>
           </Table>
         </Grid.Column>
