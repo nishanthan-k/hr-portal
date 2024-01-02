@@ -4,7 +4,7 @@ import empData from '../../assets/data/employeesData.json';
 import EmployeeCard from '../../components/EmployeeCard/EmployeeCard';
 import EmployeeFilter from '../../components/EmployeeFilter/EmployeeFilter';
 import EmployeeModal from '../../components/EmployeeModal/EmployeeModal';
-import './dashboard.css';
+import './Dashboard.scss';
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);

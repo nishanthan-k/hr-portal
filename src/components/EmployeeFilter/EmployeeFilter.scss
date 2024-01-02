@@ -3,6 +3,10 @@
   margin-left: auto;
   margin-right: 15px;
   gap: 10px;
+
+  .dropdown-container {
+    display: flex;
+  }
 }
 
 @media screen and (max-width: 560px) {
