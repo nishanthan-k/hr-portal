@@ -2,162 +2,129 @@ $primary-color: #3498db;
 $background-color: #f0f0f0;
 
 .login-container {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid gray;
-	background-color: tan;
-}
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  background-color: tan;
 
-.login {
-	width: 70%;
-	height: 65%;
-	display: flex;
-	border-radius: 10px;
-	background: #eeeeec;
-	box-shadow: 2px 2px 5px #c3c3c2, -2px -2px 5px #ffffff;
-}
+  .login {
+    width: 70%;
+    height: 65%;
+    display: flex;
+    border-radius: 10px;
+    background: #eeeeec;
+    box-shadow: 2px 2px 5px #c3c3c2, -2px -2px 5px #ffffff;
+  }
 
-.login-logo-container {
-	width: 50%;
-}
+  .login-logo-container {
+    width: 50%;
 
-.login-logo-img {
-	width: 100%;
-	height: 100%;
-	object-fit: fill;
+    .login-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+  }
 }
 
 .login-form-container {
-	width: 50%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background-color: #3465a4;
-	border: none;
-	border-radius: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #3465a4;
+  border: none;
+  border-radius: 10px;
+
+  .hr-logo-round {
+    display: none;
+  }
+
+  .login-title {
+    color: rgb(220, 220, 220);
+    span {
+      color: white;
+    }
+  }
+
+  .segment {
+    width: 70%;
+    height: 300px;
+    background: white;
+    // box-shadow: 2px 2px #c3c3c2, -2px -2px 5px #ffffff;
+
+    .login-form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 10px;
+    }
+
+    &:hover {
+      // box-shadow: 2px 2px 2px #c3c3c2, -2px -2px 2px #ffffff;
+			box-shadow: 2px 2px 10px rgb(42, 41, 41), -2px -2px 10px rgb(42, 41, 41);
+    }
+  }
+
+  .hr-logo-round {
+    display: block;
+    border-radius: 50%;
+    width: 60px;
+  }
 }
 
-.hr-logo-round {
-	display: none;
-}
-
-.login-title {
-	color: rgb(220, 220, 220);
-	span {
-		color: white;
-	}
-}
-
-.segment {
-	width: 70%;
-	height: 300px;
-	background: white;
-	box-shadow: 2px 2px 10px #c3c3c2, -2px -2px 5px #ffffff;
-
-	.login-form {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-		gap: 10px;
-	}
-}
-
-.segment:hover {
-	box-shadow: 3px 3px 5px gray -3px -3px 5px gray;
-}
-
-.hr-logo-round {
-	display: none;
-	border-radius: 50%;
-	width: 60px;
-}
-
-// @media screen and (max-width: 1000px) {
-// 	.login {
-// 		width: 500px;
-// 	}
-
-// 	.login-logo-container {
-// 		display: none;
-// 	}
-
-// 	.hr-logo-round {
-// 		display: block;
-// 		border-radius: 50%;
-// 		width: 60px;
-// 	}
-
-// 	.login-form-container {
-// 		width: 100%;
-// 	}
-// }
-
-// @media screen and (max-width: 850px) {
-// 	.login {
-// 		width: calc(min(400px, 70%));
-// 	}
-
-// 	.login-form-container {
-// 		width: 100%;
-// 	}
-
-// 	.segment {
-// 		width: 80%;
-// 	}
-// }
-
-// @media screen and (max-width: 500px) {
-// 	.login {
-// 		width: 82%;
-// 	}
-
-// 	.login-form-container {
-// 		width: 100%;
-// 	}
-// }
-
-/* Mobile styles */
 @media only screen and (max-width: 767px) {
-	.login {
-		width: 90%;
-	}
-	.login-logo-container {
-		display: none;
-	}
-	.hr-logo-round{
-		display: block;
-	}
-	.login-form-container {
-		width: 100%;
-	}
-	.segment {
-		width: 90%;
-		height: 300px;
-	}
+  .login {
+    width: 90%;
+
+    .login-logo-container {
+      display: none;
+    }
+
+    .login-form-container {
+      width: 100%;
+
+      .hr-logo-round {
+        display: block;
+      }
+
+      .segment {
+        width: 85%;
+        height: 300px;
+      }
+    }
+  }
 }
 
-/* Tablet styles */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.login-logo-container {
-		display: none;
-	}
-	.hr-logo-round{
-		display: block;
-	}
-	.login-form-container {
-		width: 100%;
-	}
-	.segment {
-		height: 300px;
-	}
+  .login {
+    width: 60% !important;
+
+    .login-logo-container {
+      display: none;
+    }
+
+    .login-form-container {
+      width: 100%;
+
+      .segment {
+        min-width: 400px;
+      }
+    }
+  }
 }
 
-/* PC styles */
-@media only screen and (min-width: 992px) {
+@media screen and (min-width: 992px) {
+  .login-logo-container {
+    width: 40%;
+  }
+  .login-form-container {
+    width: 60%;
+  }
 }
