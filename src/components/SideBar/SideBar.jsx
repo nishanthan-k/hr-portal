@@ -15,16 +15,8 @@ const SideBar = (props) => {
 
   return (
     <div className='sidebar'>
-
-      {/* <Link to="/dashboard" > */ }
-      {/* <div onClick={() => navigate("/dashboard") } className={ `menu-item ${activeItem === 'dashboard' ? 'active' : ''}` } >
-          <Icon size='big' name='chart bar outline' />
-          Dashboard
-        </div> */}
-      {/* </Link> */ }
-
       <Menu.Item
-        className={ `menu-item ${activeItem === 'dashboard' ? 'active' : ''}` }
+        className={ `menu-item ${activeItem === 'dashboard' ? 'active' : 'menu-hover'}` }
         as={ Link }
         name='dashboard'
         to='/dashboard'
@@ -35,7 +27,7 @@ const SideBar = (props) => {
       </Menu.Item>
 
       <Menu.Item
-        className={ `menu-item ${activeItem === 'projects' ? 'active' : ''}` }
+        className={ `menu-item ${activeItem === 'projects' ? 'active' : 'menu-hover'}` }
         as={ Link }
         name='projects'
         to='/projects'
@@ -46,7 +38,7 @@ const SideBar = (props) => {
       </Menu.Item>
 
       <Menu.Item
-        className={ `menu-item ${activeItem === 'leave' ? 'active' : ''}` }
+        className={ `menu-item ${activeItem === 'leave' ? 'active' : 'menu-hover'}` }
         as={ Link }
         name='leave'
         to='/leave'
@@ -57,7 +49,7 @@ const SideBar = (props) => {
       </Menu.Item>
 
       <Menu.Item
-        className={ `menu-item ${activeItem === 'account' ? 'active' : ''}` }
+        className={ `menu-item ${activeItem === 'account' ? 'active' : 'menu-hover'}` }
         as={ Link }
         name='account'
         to='/account'
@@ -68,7 +60,7 @@ const SideBar = (props) => {
       </Menu.Item>
 
       {props.showSideBar && <Menu.Item
-        className={ `menu-item ${activeItem === 'logout' ? 'active' : ''}` }
+        className={ `menu-item ${activeItem === 'logout' ? 'active' : 'menu-hover'}` }
         as={ Link }
         name='logout'
         to='/'
