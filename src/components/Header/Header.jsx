@@ -20,8 +20,6 @@ const Header = () => {
 
   let user = empData.employees.filter(emp => emp.userName === currentUser[0].username)
 
-  // console.log(user)
-
   return (
     <div className='header-container'>
       <div className='header-content'>
@@ -47,14 +45,12 @@ const Header = () => {
             <Button content="Login" />
           </div>
         ) }
-        {/* { showSideBar && ( */ }
         <div className={ showSideBar ? 'header-sidebar show' : 'header-sidebar hide' }>
           <div className='close-icon'>
             <Icon name="close" size='big' onClick={ toggleSideBar } />
           </div>
-          <SideBar showSideBar={showSideBar} />
+          <SideBar showSideBar={ showSideBar } />
         </div>
-        {/* )} */ }
       </div>
     </div >
   )

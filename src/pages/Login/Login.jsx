@@ -35,8 +35,6 @@ const Login = () => {
 						(emp, index) => emp.userName === values.username
 					);
 
-					console.log(user);
-
 					if (user.length > 0) {
 						if (user[0].password === values.password) {
 							Object.assign(currentUser[0], { username: formik.values.username, password: formik.values.password })
@@ -130,10 +128,6 @@ const Login = () => {
 								Login
 							</Button>
 						</Form>
-						{/* <div className="social-accounts">
-							<Icon name="google" size="big" className="social-accounts-icon" />
-							<Icon name="microsoft" size="big" className="social-accounts-icon" />
-						</div> */}
 					</Segment>
 				</div>
 			</div>
