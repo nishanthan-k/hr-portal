@@ -13,12 +13,13 @@ $background-color: #f0f0f0;
   .login {
     width: 70%;
     height: 65%;
+    min-height: 500px;
     display: flex;
     border-radius: 10px;
     background: #eeeeec;
     box-shadow: 2px 2px 5px #c3c3c2, -2px -2px 5px #ffffff;
   }
-
+  
   .login-logo-container {
     width: 50%;
 
@@ -49,6 +50,10 @@ $background-color: #f0f0f0;
     span {
       color: white;
     }
+
+    &:hover {
+      text-shadow: 2px 2px #558ABB;
+    }
   }
 
   .segment {
@@ -74,12 +79,16 @@ $background-color: #f0f0f0;
     display: block;
     border-radius: 50%;
     width: 60px;
+
+    &:hover {
+      box-shadow: #FC0 1px 0 10px;
+    }
   }
 }
 
 @media only screen and (max-width: 767px) {
   .login {
-    width: 90%;
+    width: 90% !important;
 
     .login-logo-container {
       display: none;

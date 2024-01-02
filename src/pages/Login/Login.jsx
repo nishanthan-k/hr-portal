@@ -50,7 +50,7 @@ const Login = () => {
 			}
 			return errors;
 		},
-		validateOnChange: false,
+		validateOnBlur: false,
 	});
 
 
