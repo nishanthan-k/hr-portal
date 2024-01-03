@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./ProjectDetails.scss"
 import { useLocation } from 'react-router-dom';
 import { Grid, Table } from 'semantic-ui-react';
 import empData from "../../assets/data/employeesData.json";
@@ -26,10 +27,10 @@ const ProjectDetails = (props) => {
   const headings = ["Title", "Project Team", "Src", "Description", "Tech Stack"];
 
   return (
-    <div>
-      <Grid style={ { width: "100vw" } }>
+    <div className='project-details'>
+      <Grid >
         <Grid.Column >
-          <Table >
+          <Table className='table' >
             <Table.Body>
               { Object.entries(project).map((detail, index) => (
                 (detail[0] !== "teamMembers" && (
