@@ -11,7 +11,7 @@ const Header = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [showSideBar, setShowSideBar] = useState(false);
   const [hrName, setHrName] = useState();
-  const [currentUser, setCurrentUser] = useState();
+  // const [currentUser, setCurrentUser] = useState();
   const { hrId } = useContext(HrContext);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Header = () => {
     // })
     //   .then(res => setHrName(res.data.data.firstName))
     let hrDetails = empData.filter((emp) => emp.empID === hrId);
-    setCurrentUser(hrDetails);
+    // setCurrentUser(hrDetails);
     hrDetails = hrDetails[0];
     setHrName(hrDetails.firstName);
   }, [hrId]);
@@ -39,12 +39,12 @@ const Header = () => {
       <div className="header-content">
         <img className="hr-logo" src={require("../../assets/images/hr-icon.jpg")} alt="HR Logo" />
         <h2>Welcome {hrName}</h2>
-        {currentUser[0].username ? (
+        {/* {currentUser[0].username ? (
           // <h2>Welcome { user[0].firstName.toUpperCase() }</h2>
           <h2>Welcome {hrName}</h2>
         ) : (
           <h2>Welcome User</h2>
-        )}
+        )} */}
       </div>
       <div className="header-functions">
         {loggedIn ? (
