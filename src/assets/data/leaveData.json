@@ -5,7 +5,7 @@
     "startDate": "01-01-2001",
     "endDate": "01-01-2001",
     "reason": "Sick",
-    "status": ""
+    "status": "In Progress"
   },
   {
     "empID": "EMP102",
@@ -13,7 +13,7 @@
     "startDate": "11-01-2001",
     "endDate": "13-01-2001",
     "reason": "Having semester exam",
-    "status": ""
+    "status": "In Progress"
   },
   {
     "empID": "EMP103",
@@ -21,7 +21,7 @@
     "startDate": "05-01-2001",
     "endDate": "07-01-2001",
     "reason": "Going to marriage",
-    "status": ""
+    "status": "In Progress"
   },
   {
     "empID": "EMP104",
@@ -29,7 +29,7 @@
     "startDate": "02-01-2001",
     "endDate": "02-01-2001",
     "reason": "Sick",
-    "status": ""
+    "status": "In Progress"
   },
   {
     "empID": "EMP105",
@@ -37,7 +37,7 @@
     "startDate": "12-01-2001",
     "endDate": "12-01-2001",
     "reason": "Sick",
-    "status": ""
+    "status": "In Progress"
   },
   {
     "empID": "EMP106",
@@ -45,6 +45,6 @@
     "startDate": "12-01-2001",
     "endDate": "13-01-2001",
     "reason": "Sick",
-    "status": ""
+    "status": "In Progress"
   }
 ]

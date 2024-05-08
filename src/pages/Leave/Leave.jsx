@@ -4,17 +4,35 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button, Icon, Loader, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "semantic-ui-react";
 import { formatDate } from "../../commonFunctions/formatFunctions";
+import leaveEmp from "../../assets/data/leaveData.json";
 import "./Leave.scss";
 
 const Leave = () => {
-  const [leaveData, setLeaveData] = useState([]);
+  const [leaveData, setLeaveData] = useState(leaveEmp);
   const [onLoading, setOnLoading] = useState(true);
 
-  // useEffect(() => {
-  //   axios.get("http://192.168.1.196:8080/empLeave/listEmployeeLeave").then((res) => { setLeaveData(res.data.data); setOnLoading(false) })
-  // }, []);
+  useEffect(() => {
+    //   axios.get("http://192.168.1.196:8080/empLeave/listEmployeeLeave").then((res) => { setLeaveData(res.data.data); setOnLoading(false) })
+    if (leaveData.length > 0) setOnLoading(false);
+  }, [leaveData]);
 
-  const updateLeaveStatus = async (empId, leaveStatus) => {
+  const updateLeaveStatus = (empId, leaveStatus) => {
+    // Create a new array with updated leave data
+    const updatedLeaveData = leaveData.map((emp) => {
+      if (emp.empID === empId) {
+        // Return a new object with updated status
+        return {
+          ...emp,
+          status: leaveStatus,
+        };
+      }
+      // For other employees, return the original object
+      return emp;
+    });
+
+    // Update the state with the new array
+    setLeaveData(updatedLeaveData);
+
     // try {
     //   await axios.post("http://192.168.1.196:8080/empLeave/updateLeaveStatus", {
     //     leaveId: empId,
@@ -81,18 +99,18 @@ const Leave = () => {
             <TableBody className="table-body">
               {leaveData.map((user, rowIndex) => (
                 <TableRow key={rowIndex}>
-                  <TableCell className="">{user.id}</TableCell>
+                  <TableCell className="">{user.empID}</TableCell>
                   <TableCell className="">{user.fullName}</TableCell>
                   <TableCell className="">{formatDate(user.startDate)}</TableCell>
                   <TableCell className="">{formatDate(user.endDate)}</TableCell>
                   <TableCell className="">{user.reason}</TableCell>
-                  {user.status === "in progress" ? (
+                  {user.status === "In Progress" ? (
                     <TableCell className="table-data button-data-item">
                       <Button
                         positive
                         content="Approve"
                         onClick={() => {
-                          updateLeaveStatus(user.id, "approved");
+                          updateLeaveStatus(user.empID, "approved");
                           runToast("approved");
                         }}
                       />
@@ -100,7 +118,7 @@ const Leave = () => {
                         negative
                         content="Decline"
                         onClick={() => {
-                          updateLeaveStatus(user.id, "declined");
+                          updateLeaveStatus(user.empID, "declined");
                           runToast("declined");
                         }}
                       />
@@ -112,7 +130,7 @@ const Leave = () => {
                         content="Approved"
                         className="status-changed"
                         onClick={() => {
-                          updateLeaveStatus(user.id, "declined");
+                          updateLeaveStatus(user.empID, "declined");
                           runToast("declined");
                         }}
                       />
@@ -124,7 +142,7 @@ const Leave = () => {
                         content="Declined"
                         className="status-changed"
                         onClick={() => {
-                          updateLeaveStatus(user.id, "approved");
+                          updateLeaveStatus(user.empID, "approved");
                           runToast("approved");
                         }}
                       />
