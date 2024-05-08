@@ -11,7 +11,7 @@ const Account = () => {
   // let userData = empData.employees.filter((user, index) => user.userName === currentUser[0].username);
 
   // console.log('header hrid', hrId);
-  console.log("hr", hrId);
+  // console.log("hr", hrId);
   useEffect(() => {
     // axios.post("http://192.168.1.196:8080/hr/showHrDetails", {
     //   hrId: hrId
