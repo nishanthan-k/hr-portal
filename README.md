@@ -6,6 +6,10 @@ Welcome to the HR Portal project! This web application is designed to streamline
 
 Explore the live demo [here](https://nishanthan-k-hr-portal.netlify.app/).
 
+## Demo Credentials
+Username: romin <br>
+Password: pass
+
 ## Features
 
 - **Responsive Design:** Ensures a seamless experience across various devices.
