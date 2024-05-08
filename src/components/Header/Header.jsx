@@ -14,6 +14,8 @@ const Header = () => {
   // const [currentUser, setCurrentUser] = useState();
   const { hrId } = useContext(HrContext);
 
+  console.log("called Header");
+
   useEffect(() => {
     // axios.post("http://192.168.1.196:8080/hr/showHrDetails", {
     //   hrId: hrId
@@ -22,6 +24,7 @@ const Header = () => {
     let hrDetails = empData.filter((emp) => emp.empID === hrId);
     // setCurrentUser(hrDetails);
     hrDetails = hrDetails[0];
+    console.log("hrDetails", hrDetails);
     setHrName(hrDetails.firstName);
   }, [hrId]);
 
