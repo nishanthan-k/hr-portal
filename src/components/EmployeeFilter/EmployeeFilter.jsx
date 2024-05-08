@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Dropdown, Input } from "semantic-ui-react";
 import "./EmployeeFilter.scss";
 
@@ -18,6 +17,7 @@ const EmployeeFilter = (props) => {
   const [filterOption, setFilterOption] = useState(props.defaultFilter);
   const [sortOption, setSortOption] = useState(props.defaultSort);
   const [input, setInput] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [frontDB, setFrontDB] = useState([]);
 
   // console.log(filterOption, sortOption);

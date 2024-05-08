@@ -1,10 +1,9 @@
+import { useFormik } from "formik";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Icon, Segment } from "semantic-ui-react";
-import axios from "axios";
-import { useFormik } from "formik";
-import { HrContext } from "../../contexts/HrContext/HrContext";
 import empData from "../../assets/data/employeesData.json";
+import { HrContext } from "../../contexts/HrContext/HrContext";
 import "./Login.scss";
 
 const Login = () => {

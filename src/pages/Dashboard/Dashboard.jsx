@@ -1,10 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Grid } from "semantic-ui-react";
+import empData from "../../assets/data/employeesData.json";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
 import EmployeeFilter from "../../components/EmployeeFilter/EmployeeFilter";
 import EmployeeModal from "../../components/EmployeeModal/EmployeeModal";
-import empData from "../../assets/data/employeesData.json";
 import "./Dashboard.scss";
 
 const Dashboard = () => {

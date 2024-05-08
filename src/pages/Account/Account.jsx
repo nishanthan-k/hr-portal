@@ -1,8 +1,7 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Loader, Table, TableBody } from "semantic-ui-react";
-import { HrContext } from "../../contexts/HrContext/HrContext";
 import empData from "../../assets/data/employeesData.json";
+import { HrContext } from "../../contexts/HrContext/HrContext";
 import "./Account.scss";
 
 const Account = () => {

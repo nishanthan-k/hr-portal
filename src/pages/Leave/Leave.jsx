@@ -1,10 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button, Icon, Loader, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "semantic-ui-react";
-import { formatDate } from "../../commonFunctions/formatFunctions";
 import leaveEmp from "../../assets/data/leaveData.json";
+import { formatDate } from "../../commonFunctions/formatFunctions";
 import "./Leave.scss";
 
 const Leave = () => {

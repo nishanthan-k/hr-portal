@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useFormik } from "formik";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Button, Container, Form, Icon, Modal } from "semantic-ui-react";
-import { formatDate, postDateFormat } from "../../commonFunctions/formatFunctions";
+import { formatDate } from "../../commonFunctions/formatFunctions";
 import "./EditModal.scss";
 
 const EditModal = (props) => {
