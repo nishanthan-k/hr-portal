@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Loader, Table, TableBody } from "semantic-ui-react";
 import { HrContext } from "../../contexts/HrContext/HrContext";
+import empData from "../../assets/data/employeesData.json";
 import "./Account.scss";
 
 const Account = () => {
@@ -11,13 +12,18 @@ const Account = () => {
   // let userData = empData.employees.filter((user, index) => user.userName === currentUser[0].username);
 
   // console.log('header hrid', hrId);
+  console.log("hr", hrId);
+  useEffect(() => {
+    // axios.post("http://192.168.1.196:8080/hr/showHrDetails", {
+    //   hrId: hrId
+    // })
+    //   .then(res => {setUserData(res.data.data); setOnLoading(false)})
+    let hrDetails = empData.filter((emp) => emp.empID === hrId);
+    hrDetails = hrDetails[0];
 
-  // useEffect(() => {
-  //   axios.post("http://192.168.1.196:8080/hr/showHrDetails", {
-  //     hrId: hrId
-  //   })
-  //     .then(res => {setUserData(res.data.data); setOnLoading(false)})
-  // }, [hrId])
+    setUserData(hrDetails);
+    setOnLoading(false);
+  }, [hrId]);
 
   // console.log(userData.dob, typeof userData.dob);
 
@@ -46,7 +52,7 @@ const Account = () => {
             <TableBody>
               <Table.Row>
                 <Table.Cell className="table-heading">EMPLOYEE ID</Table.Cell>
-                <Table.Cell className="table-data">{`EMPH${userData.id}`}</Table.Cell>
+                <Table.Cell className="table-data">{`EMPH${userData.empID}`}</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell className="table-heading">FIRST NAME</Table.Cell>

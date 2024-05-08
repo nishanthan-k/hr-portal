@@ -10,7 +10,7 @@ import "./Dashboard.scss";
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const [selectedEmp, setSelectedEmp] = useState(open || "");
-  const [filteredEmp, setFilteredEmp] = useState([...empData.employees]);
+  const [filteredEmp, setFilteredEmp] = useState(empData);
   const [onLoading, setOnLoading] = useState(true);
 
   useEffect(() => {
