@@ -1,12 +1,20 @@
 .account-container {
   width: 100%;
-  height: 100%;
+  // height: 100%;
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  overflow: hidden;
+
+  .loader-container{
+    height: 80vh;
+    .ui.inline.loader{
+        top: 40%;
+    }
+  }
 }
 
-.account-table {
+.account-table-container {
   width: 600px;
   height: max-content;
 
@@ -15,6 +23,11 @@
     text-align: left;
     padding: 10px;
   }
+
+  .table-heading {
+    font-weight: bold;
+  }
+
 
   .table-row:nth-child(odd) {
     background-color: lightgray;

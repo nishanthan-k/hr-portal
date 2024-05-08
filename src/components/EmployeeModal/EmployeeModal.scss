@@ -1,0 +1,12 @@
+.emp-detail-heading {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.emp-detail-heading::after {
+  content: " : ";
+}
+
+.emp-detail-value {
+  font-size: 16px;
+}

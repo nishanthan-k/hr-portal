@@ -1,8 +1,22 @@
+.loader-container{
+  height: 80vh;
+  .ui.inline.loader{
+      top: 40%;
+  }
+}
+
 .table-container {
-  max-width: 900px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center !important;
+}
+
+.leave-table-container {
   margin: auto;
   overflow-x: auto;
-  text-align: center;
+  text-align: center !important;
 }
 
 .leave-table {
@@ -10,42 +24,73 @@
   width: auto;
   display: inline-block;
   white-space: nowrap;
-	
-	.table-head-row {
-		height: 4rem;
-	}	
-	
-	.table-body-row {
-		min-height: 4rem; 			
-	}
-	
-	.table-head-row,
-	.table-body-row:nth-child(even) {
-		background-color: lightgray;
-	}
-	
-	.table-data {
-		max-width: 210px;
-		white-space: normal; 
-		padding: 8px;
-	}
+  text-align: center !important;
 
-	.table-data:nth-child(3), .table-data:nth-child(4) {	
-		min-width: 100px;
-	}
+  .table-head-row {
+    height: 4rem;
+    text-align: center !important;
+  }
 
-	.table-data:nth-child(5) {	
-		min-width: 150px;
-	}
-	
-	.table-data:nth-child(6) {
-		white-space: nowrap;
-		min-width: 210px;
-	}
+  .table-body-row {
+    min-height: 4rem;
+    
+  }
 
-	.table-body-row:hover {
-		background-color: rgba(169, 169, 169, 0.2);
-	}
+  .table-head-row,
+  .table-body-row:nth-child(even) {
+    background-color: lightgray;
+  }
+
+  .table-data {
+    text-align: center !important;
+    max-width: 210px;
+    white-space: normal;
+    padding: 8px;
+  }
+
+  .button-data-item {
+    display: flex;
+    justify-content: center;
+  }
+
+  .table-data:nth-child(3),
+  .table-data:nth-child(4) {
+    min-width: 100px;
+  }
+
+  .table-data:nth-child(5) {
+    min-width: 150px;
+  }
+
+  .table-data:nth-child(6) {
+    white-space: nowrap;
+    min-width: 210px;
+  }
+
+  .table-body-row:hover {
+    background-color: rgba(169, 169, 169, 0.2);
+  }
+
+  .status-changed {
+    cursor: default;
+  }
+
+  .toast-message {
+    background: darkblue;
+    color: red;
+    font-size: 20px;
+    width: 34vw;
+    padding: 30px 20px;
+  }
 }
 
+// @media only screen and (max-width: 767px) {
+//   .ui.table:not(.unstackable) {
+//     padding: 10px;
+//   }
+//   .ui.table:not(.unstackable) tr > th, .ui.table:not(.unstackable) tr > td {
+//     // width: auto !important;
+//     display: inline-block !important;
 
+//   }
+// }

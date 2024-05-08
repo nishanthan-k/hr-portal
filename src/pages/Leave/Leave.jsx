@@ -1,107 +1,143 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Button, Icon, Loader, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from "semantic-ui-react";
+import { formatDate } from "../../commonFunctions/formatFunctions";
 import "./Leave.scss";
-import leaveData from "../../assets/data/leaveData.json";
-import empData from "../../assets/data/employeesData.json";
-import { Button } from "semantic-ui-react";
 
 const Leave = () => {
-	let empProfile = [];
-	leaveData.map((c, d) => {
-		empProfile.push(empData.employees.filter((a, b) => c.empID === a.empID));
-		return [];
-	});
+  const [leaveData, setLeaveData] = useState([]);
+  const [onLoading, setOnLoading] = useState(true);
 
-	const initialStatus = leaveData.map(() => ({
-		approved: false,
-		declined: false,
-	}));
+  // useEffect(() => {
+  //   axios.get("http://192.168.1.196:8080/empLeave/listEmployeeLeave").then((res) => { setLeaveData(res.data.data); setOnLoading(false) })
+  // }, []);
 
-	const [statusArray, setStatusArray] = useState(initialStatus);
+  const updateLeaveStatus = async (empId, leaveStatus) => {
+    // try {
+    //   await axios.post("http://192.168.1.196:8080/empLeave/updateLeaveStatus", {
+    //     leaveId: empId,
+    //     statusToUpdate: leaveStatus,
+    //   });
+    //   const updatedData = await axios.get("http://192.168.1.196:8080/empLeave/listEmployeeLeave");
+    //   setLeaveData(updatedData.data.data);
+    // } catch (error) {
+    //   console.error("Error updating leave status:", error);
+    // }
+  };
 
-	const statusHandler = (sign, rowIndex) => {
-		setStatusArray((prevStatusArray) => {
-			const updatedStatusArray = [...prevStatusArray];
-			updatedStatusArray[rowIndex] = {
-				...updatedStatusArray[rowIndex],
-				approved: sign === "approve",
-				declined: sign === "decline",
-			};
-			return updatedStatusArray;
-		});
-		updateJson(sign, rowIndex);
-	};
+  const runToast = (status) => {
+    // console.log("toast 1");
+    // console.log(status)
+    if (status === "approved") {
+      toast.success("Approved!", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        // // draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } else {
+      toast.error("Declined", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        // draggable: true,
+        progress: undefined,
+        theme: "colored",
+        icon: <Icon name="times circle" size="large" />,
+      });
+    }
+    // console.log("toast 2");
+  };
 
-	const updateJson = (sign, rowIndex) => {
-		leaveData.map((user, userIndex) => {
-			if (rowIndex === userIndex) {
-				if (sign === "approve") {
-					user.status = true;
-				} else {
-					user.status = false;
-				}
-			}
-			return []
-		})
-	}
+  return (
+    <div className="table-container">
+      <ToastContainer />
 
-	return (
-		<div className="table-container">
-			<table className="leave-table" cellSpacing={ 0 } cellPadding={ 5 } >
-				<thead className="table-head">
-					<tr className="table-head-row">
-						<th className="table-heading" >EMPLOYEE ID</th>
-						<th className="table-heading" >FULL NAME</th>
-						<th className="table-heading" >START DATE</th>
-						<th className="table-heading" >END DATE</th>
-						<th className="table-heading" >REASON</th>
-						<th className="table-heading" >APPROVAL</th>
-					</tr>
-				</thead>
-				<tbody className="table-body">
-					{ leaveData.map((user, rowIndex) => (
-						<tr className="table-body-row" key={ rowIndex }>
-							{ Object.entries(user).map(
-								(data, detail) =>
-									data[0] !== "status" && (
-										<td
-											className="table-data"
-											key={ detail }
-										>
-											{ data[1] }
-										</td>
-									)
-							) }
-							<td className="table-data button-data-item" 	>
-								{ !statusArray[rowIndex].approved &&
-									!statusArray[rowIndex].declined ? (
-									<>
-										<Button
-											positive
-											content="Approve"
-											onClick={ () => {
-												statusHandler("approve", rowIndex);
-											} }
-										/>
-										<Button
-											negative
-											content="Decline"
-											onClick={ () => {
-												statusHandler("decline", rowIndex);
-											} }
-										/>
-									</>
-								) : statusArray[rowIndex].approved ? (
-									<Button positive content="Approved" />
-								) : (
-									<Button negative content="Declined" />
-								) }
-							</td>
-						</tr>
-					)) }
-				</tbody>
-			</table>
-		</div>
-	);
+      {onLoading ? (
+        <div className="loader-container">
+          <Loader active inline="centered" size="large" />
+        </div>
+      ) : (
+        <div fluid="false" className="leave-table-container">
+          <Table className="leave-table" unstackable striped selectable>
+            <TableHeader className="table-head">
+              <TableRow className="table-head-row">
+                <TableHeaderCell className="table-heading">EMPLOYEE ID</TableHeaderCell>
+                <TableHeaderCell className="table-heading">FULL NAME</TableHeaderCell>
+                <TableHeaderCell className="table-heading">START DATE</TableHeaderCell>
+                <TableHeaderCell className="table-heading">END DATE</TableHeaderCell>
+                <TableHeaderCell className="table-heading">REASON</TableHeaderCell>
+                <TableHeaderCell className="table-heading">APPROVAL</TableHeaderCell>
+              </TableRow>
+            </TableHeader>
+            <TableBody className="table-body">
+              {leaveData.map((user, rowIndex) => (
+                <TableRow key={rowIndex}>
+                  <TableCell className="">{user.id}</TableCell>
+                  <TableCell className="">{user.fullName}</TableCell>
+                  <TableCell className="">{formatDate(user.startDate)}</TableCell>
+                  <TableCell className="">{formatDate(user.endDate)}</TableCell>
+                  <TableCell className="">{user.reason}</TableCell>
+                  {user.status === "in progress" ? (
+                    <TableCell className="table-data button-data-item">
+                      <Button
+                        positive
+                        content="Approve"
+                        onClick={() => {
+                          updateLeaveStatus(user.id, "approved");
+                          runToast("approved");
+                        }}
+                      />
+                      <Button
+                        negative
+                        content="Decline"
+                        onClick={() => {
+                          updateLeaveStatus(user.id, "declined");
+                          runToast("declined");
+                        }}
+                      />
+                    </TableCell>
+                  ) : user.status === "approved" ? (
+                    <TableCell className="table-data button-data-item">
+                      <Button
+                        positive
+                        content="Approved"
+                        className="status-changed"
+                        onClick={() => {
+                          updateLeaveStatus(user.id, "declined");
+                          runToast("declined");
+                        }}
+                      />
+                    </TableCell>
+                  ) : (
+                    <TableCell className="table-data button-data-item">
+                      <Button
+                        negative
+                        content="Declined"
+                        className="status-changed"
+                        onClick={() => {
+                          updateLeaveStatus(user.id, "approved");
+                          runToast("approved");
+                        }}
+                      />
+                    </TableCell>
+                  )}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Leave;

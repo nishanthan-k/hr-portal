@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Dropdown, Input } from "semantic-ui-react";
-import empData from "../../assets/data/employeesData.json";
 import "./EmployeeFilter.scss";
 
 const filterBy = [
   { key: "role", text: "By Role", value: "role" },
   { key: "fullName", text: "By Name", value: "fullName" },
-  { key: "empID", text: "By empID", value: "empID" },
+  { key: "empId", text: "By EmpId", value: "empId" },
 ];
 
 const sortBy = [
@@ -15,13 +15,23 @@ const sortBy = [
 ];
 
 const EmployeeFilter = (props) => {
-  const [filterOption, setFilterOption] = useState("role");
-  const [sortOption, setSortOption] = useState("exp");
+  const [filterOption, setFilterOption] = useState(props.defaultFilter);
+  const [sortOption, setSortOption] = useState(props.defaultSort);
   const [input, setInput] = useState("");
+  const [frontDB, setFrontDB] = useState([]);
+
+  // console.log(filterOption, sortOption);
+
+  // useEffect(() => {
+  //   axios.get("http://192.168.1.196:8080/employee/listEmployee")
+  //     .then(res => {
+  //       setFrontDB(res.data.data);
+  //     })
+  // }, [])
 
   const searchHandler = (e) => {
     const inputValue = e.target.value;
-    setInput(inputValue);
+    setInput(inputValue.toLowerCase());
     filterAndSortData(inputValue, filterOption, sortOption);
   };
 
@@ -36,14 +46,27 @@ const EmployeeFilter = (props) => {
   };
 
   const filterAndSortData = (searchInput, filter, sort) => {
-    let filteredData = empData.employees.slice();
+    let filteredData = frontDB;
+    let searchId = searchInput;
+
+    if (searchInput.includes("emp")) {
+      searchId = searchInput.split("emp");
+    }
 
     if (searchInput) {
       filteredData = filteredData.filter((emp) =>
-        emp[filter].toLowerCase().includes(searchInput.toLowerCase())
+        filter !== "empId"
+          ? emp[filter].toLowerCase().includes(searchInput.toLowerCase())
+          : // console.log('filter id')
+          searchInput.includes("emp")
+          ? emp.id === parseInt(searchInput.split("emp")[1])
+          : emp.id === parseInt(searchId)
       );
     }
 
+    if (filterOption === "empId" && (searchInput === "e" || searchInput === "em" || searchInput === "emp")) {
+      filteredData = frontDB;
+    }
     if (sort === "exp") {
       filteredData.sort((a, b) => b.exp - a.exp);
     } else {
@@ -55,34 +78,9 @@ const EmployeeFilter = (props) => {
 
   return (
     <div className="filter-bar">
-      <Input
-        action={
-          <Dropdown
-            button
-            basic
-            floating
-            placeholder="Filter By"
-            options={filterBy}
-            value={filterOption}
-            onChange={filterHandler}
-          />
-        }
-        icon="search"
-        iconPosition="left"
-        value={input}
-        onChange={(e) => searchHandler(e)}
-        placeholder="Search here"
-      />
+      <Input action={<Dropdown button basic floating placeholder="Filter By" options={filterBy} value={filterOption} onChange={filterHandler} />} icon="search" iconPosition="left" value={input} onChange={(e) => searchHandler(e)} placeholder="Search here" />
       <div className="dropdown-container">
-        <Dropdown
-          button
-          basic
-          floating
-          placeholder="Sort By"
-          options={sortBy}
-          value={sortOption}
-          onChange={sortHandler}
-        />
+        <Dropdown button basic floating placeholder="Sort By" options={sortBy} value={sortOption} onChange={sortHandler} />
       </div>
     </div>
   );
