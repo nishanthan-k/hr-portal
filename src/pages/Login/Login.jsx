@@ -1,15 +1,28 @@
 import { useFormik } from "formik";
 import React, { useContext, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Icon, Segment } from "semantic-ui-react";
 import empData from "../../assets/data/employeesData.json";
 import { HrContext } from "../../contexts/HrContext/HrContext";
 import "./Login.scss";
+import { useEffect } from "react";
 
 const Login = () => {
   const history = useHistory();
   const { setHr } = useContext(HrContext);
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  useEffect(() => {
+    toast.info("Username: romin, Password: pass", {
+      position: "top-right",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      progress: undefined,
+      theme: "colored",
+    })
+  }, [])
 
   const formik = useFormik({
     initialValues: {
@@ -98,74 +111,75 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login">
-        <div className="login-logo-container">
-          <img className="login-logo-img" src={require("../../assets/images/hr-login.avif")} alt="HR Logo" />
-        </div>
-        <div className="login-form-container">
-          <img src={require("../../assets/images/hr-icon.jpeg")} alt="hr-logo" className="hr-logo-round" />
-          <h1 className="login-title">
-            <span>HR</span> Portal
-          </h1>
-          <Segment className="segment">
-            <Form className="login-form" onSubmit={formik.handleSubmit}>
-              <div className="form-field">
-                <Form.Field>
-                  <Form.Input
-                    label="Username"
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={formik.values.username}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    onKeyPress={submitHandler}
-                    error={
-                      formik.errors.username && {
-                        content: formik.errors.username,
-                        pointing: "below",
+      <div className="login-container">
+        <ToastContainer />
+        <div className="login">
+          <div className="login-logo-container">
+            <img className="login-logo-img" src={require("../../assets/images/hr-login.avif")} alt="HR Logo" />
+          </div>
+          <div className="login-form-container">
+            <img src={require("../../assets/images/hr-icon.jpeg")} alt="hr-logo" className="hr-logo-round" />
+            <h1 className="login-title">
+              <span>HR</span> Portal
+            </h1>
+            <Segment className="segment">
+              <Form className="login-form" onSubmit={formik.handleSubmit}>
+                <div className="form-field">
+                  <Form.Field>
+                    <Form.Input
+                      label="Username"
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      value={formik.values.username}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      onKeyPress={submitHandler}
+                      error={
+                        formik.errors.username && {
+                          content: formik.errors.username,
+                          pointing: "below",
+                        }
                       }
-                    }
-                  />
-                </Form.Field>
-              </div>
-              <div className="form-field">
-                <Form.Field>
-                  <Form.Input
-                    label="Password"
-                    type={formik.values.showPassword ? "text" : "password"}
-                    name="password"
-                    placeholder="Password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    onKeyPress={submitHandler}
-                    onBlur={formik.handleBlur}
-                    error={
-                      formik.errors.password && {
-                        content: formik.errors.password,
-                        pointing: "above",
+                    />
+                  </Form.Field>
+                </div>
+                <div className="form-field">
+                  <Form.Field>
+                    <Form.Input
+                      label="Password"
+                      type={formik.values.showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder="Password"
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
+                      onKeyPress={submitHandler}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.errors.password && {
+                          content: formik.errors.password,
+                          pointing: "above",
+                        }
                       }
-                    }
-                    icon={<Icon name={formik.values.showPassword ? "eye" : "eye slash"} link onClick={() => formik.setFieldValue("showPassword", !formik.values.showPassword)} />}
-                  />
-                </Form.Field>
-              </div>
-              <Button
-                type="submit"
-                fluid
-                primary
-                onClick={() => {
-                  submitHandler();
-                }}
-              >
-                Login
-              </Button>
-            </Form>
-          </Segment>
+                      icon={<Icon name={formik.values.showPassword ? "eye" : "eye slash"} link onClick={() => formik.setFieldValue("showPassword", !formik.values.showPassword)} />}
+                    />
+                  </Form.Field>
+                </div>
+                <Button
+                  type="submit"
+                  fluid
+                  primary
+                  onClick={() => {
+                    submitHandler();
+                  }}
+                >
+                  Login
+                </Button>
+              </Form>
+            </Segment>
+          </div>
         </div>
       </div>
-    </div>
   );
 };
 
