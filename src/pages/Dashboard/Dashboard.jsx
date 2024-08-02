@@ -30,11 +30,13 @@ const Dashboard = () => {
     setFilteredEmp([...newEmpList]);
   };
 
+  console.log(filteredEmp)
+
   return (
     <div className="dashboard-container">
       <Grid style={{ width: "100%", margin: 0 }}>
         <Grid.Row className="filter-row">
-          <EmployeeFilter filteredEmp={filteredEmp} setFilteredEmp={setFilteredEmp} defaultFilter={"role"} defaultSort={"exp"} />
+          <EmployeeFilter filteredEmp={filteredEmp} setFilteredEmp={setFilteredEmp} defaultFilter={"role"} defaultSort={"exp"} empData={empData} />
         </Grid.Row>
         <Grid.Row className="employee-card-row">
           <Grid.Column width={16}>

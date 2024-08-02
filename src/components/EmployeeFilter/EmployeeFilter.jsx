@@ -18,7 +18,7 @@ const EmployeeFilter = (props) => {
   const [sortOption, setSortOption] = useState(props.defaultSort);
   const [input, setInput] = useState("");
   // eslint-disable-next-line no-unused-vars
-  const [frontDB, setFrontDB] = useState([]);
+  const [frontDB, setFrontDB] = useState(props.empData);
 
   // console.log(filterOption, sortOption);
 
