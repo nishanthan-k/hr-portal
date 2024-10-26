@@ -1,28 +1,15 @@
 import { useFormik } from "formik";
 import React, { useContext, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { Button, Form, Icon, Segment } from "semantic-ui-react";
 import empData from "../../assets/data/employeesData.json";
 import { HrContext } from "../../contexts/HrContext/HrContext";
 import "./Login.scss";
-import { useEffect } from "react";
 
 const Login = () => {
   const history = useHistory();
   const { setHr } = useContext(HrContext);
   const [formSubmitted, setFormSubmitted] = useState(false);
-
-  useEffect(() => {
-    toast.info("Username: romin, Password: pass", {
-      position: "top-right",
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      progress: undefined,
-      theme: "colored",
-    })
-  }, [])
 
   const formik = useFormik({
     initialValues: {
@@ -112,7 +99,6 @@ const Login = () => {
 
   return (
       <div className="login-container">
-        <ToastContainer />
         <div className="login">
           <div className="login-logo-container">
             <img className="login-logo-img" src={require("../../assets/images/hr-login.avif")} alt="HR Logo" />

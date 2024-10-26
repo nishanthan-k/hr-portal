@@ -36,7 +36,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <Grid style={{ width: "100%", margin: 0 }}>
         <Grid.Row className="filter-row">
-          <EmployeeFilter filteredEmp={filteredEmp} setFilteredEmp={setFilteredEmp} defaultFilter={"role"} defaultSort={"exp"} empData={empData} />
+          <EmployeeFilter filteredEmp={filteredEmp} setFilteredEmp={setFilteredEmp} defaultFilter={"role"} defaultSort={"doj"} empData={empData} />
         </Grid.Row>
         <Grid.Row className="employee-card-row">
           <Grid.Column width={16}>

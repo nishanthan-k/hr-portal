@@ -59,22 +59,25 @@ const EmployeeFilter = (props) => {
           ? emp[filter].toLowerCase().includes(searchInput.toLowerCase())
           : // console.log('filter id')
           searchInput.includes("emp")
-          ? emp.id === parseInt(searchInput.split("emp")[1])
-          : emp.id === parseInt(searchId)
+          ? (emp.empID).toString().includes((searchInput.split("emp")[1]).toString())
+          : (emp.empID).toString().includes((searchId).toString())
       );
     }
 
     if (filterOption === "empId" && (searchInput === "e" || searchInput === "em" || searchInput === "emp")) {
       filteredData = frontDB;
     }
-    if (sort === "exp") {
-      filteredData.sort((a, b) => b.exp - a.exp);
-    } else {
-      filteredData.sort((a, b) => new Date(a.doj) - new Date(b.doj));
-    }
+
+  if (sort === "exp") {
+    filteredData = [...filteredData].sort((a, b) => b.exp - a.exp);
+  } else {
+    filteredData = [...filteredData].sort((a, b) => new Date(a.doj) - new Date(b.doj));
+  }
+
 
     props.setFilteredEmp(filteredData);
   };
+
 
   return (
     <div className="filter-bar">
